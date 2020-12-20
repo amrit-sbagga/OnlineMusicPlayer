@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css")
+        style
+            include ./music-card.css
+        title #{title}
+    body(style="padding: 5%; padding-top:0")
+        include navbar.pug
+        h2 #{title}
+        hr
+
+        div.row
+            each music in musicalbums
+                div(class="container" style="width: 18rem; border: 2px solid lightblue; margin-bottom:20px")
+                    div(class="album-card text-center")
+                        img(src=music.imgurl width=250 height=250 class="img img-responsive")
+                    div(class="album-content")
+                        div(class="album-name" style="font-size=22px") 
+                            b #{music.name}
+                        div(class="album-description") 
+                            marquee(behavior="scroll" direction="horizontal") #{music.description}
+                        hr
+                        div(class="album-overview")
+                            h6 AVAILABLE QUANTITY : #{music.quantity}
+                        div(class="album-overview col-xs-4")
+                            h6 PRICE : #{music.price} 
+                            - var hasError = music.id_error
+                            if hasError !== undefined
+                                div.alert.alert-danger #{hasError}
+                            
+                        div(class="album-overview col-xs-4")
+                            form(method="post" action="/music/mylibrary")
+                                div.form-group
+                                    //- label Name
+                                    input.form-control(name="music" type="hidden" value=music)
+                                button(type="submit" class="btn btn-danger" style="float:right") Purchase
+                                
+                                //- div.col-10.ml-sm-auto.px-4
+                                //-     div.alert.alert-success #{ success }
+                                    
+                    //- div(class="alert flash")
+                        //- button(type="button" class="close")
+                        //- i(class="fa sign")
+                        //- strong {type}
+                        //- span {{message}}
+                                
+                        

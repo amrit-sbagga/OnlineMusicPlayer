@@ -1,0 +1,85 @@
+.container-fluid,
+.container {
+    max-width: 1200px;
+}
+
+.card-container {
+    padding: 100px 0px;
+    -webkit-perspective: 1000;
+    perspective: 1000;
+}
+
+.album-card {
+    max-width: 300px;
+    background-color: #FFF;
+    border-radius: 5px;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+    margin: 10px auto;
+    cursor: pointer;
+}
+
+.album-card img {
+    transition: all 0.25s linear;
+}
+
+.album-card .album-content {
+    position: relative;
+    padding: 15px;
+    background-color: #FFF;
+}
+
+.album-card .album-name {
+    font-weight: bold;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: -70px;
+    color: #FFF;
+    font-size: 17px;
+}
+
+.album-card .album-name p {
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+}
+
+.album-card .album-description {
+    color: #777;
+    font-size: 12px;
+    padding: 10px;
+}
+
+.album-card .album-overview {
+    padding: 15px 0px;
+}
+
+.album-card .album-overview p {
+    font-size: 10px;
+    font-weight: 600;
+    color: #777;
+}
+
+.album-card .album-overview h4 {
+    color: #273751;
+    font-weight: bold;
+}
+
+.album-card .album-content::before {
+    content: "";
+    position: absolute;
+    height: 20px;
+    top: -10px;
+    left: 0px;
+    right: 0px;
+    background-color: #FFF;
+    z-index: 0;
+    transform: skewY(3deg);
+}
+
+.album-card:hover img {
+    transform: rotate(5deg) scale(1.1, 1.1);
+    filter: brightness(110%);
+}
